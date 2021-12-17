@@ -1,6 +1,6 @@
 package az.abb.etaskifyapp.config;
 
-import az.abb.etaskifyapp.security.CustomUserDetailsService;
+//import az.abb.etaskifyapp.security.CustomUserDetailsService;
 import az.abb.etaskifyapp.security.JwtAuthenticationEntryPoint;
 import az.abb.etaskifyapp.security.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
@@ -30,8 +30,8 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+//    @Autowired
+//    private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
@@ -41,12 +41,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new JwtAuthenticationFilter();
     }
 
-    @Override
-    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder
-                .userDetailsService(customUserDetailsService)
-                .passwordEncoder(passwordEncoder());
-    }
+//    @Override
+//    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+//        authenticationManagerBuilder
+//                .userDetailsService(customUserDetailsService)
+//                .passwordEncoder(passwordEncoder());
+//    }
 
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     @Override

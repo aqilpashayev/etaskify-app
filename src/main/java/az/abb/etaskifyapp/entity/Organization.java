@@ -9,15 +9,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "organizations", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"orgName"})
-      })
+@Table(name = "organization")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Organization extends DateAudit{
-
-
+public class Organization extends DateAudit {
 
 
     public Organization(String orgName, String phoneNumber, String address) {

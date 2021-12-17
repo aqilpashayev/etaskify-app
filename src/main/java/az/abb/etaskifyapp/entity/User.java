@@ -11,16 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table( name = "users", uniqueConstraints = {
-                        @UniqueConstraint(columnNames ={
-                            "username"
-                        }),
-                        @UniqueConstraint(columnNames = {
-                                "email"
-                        })
-})
+@Table( name = "user")
 @Data
-public class User extends DateAudit{
+public class User {
 
     public User() {
     }
@@ -68,6 +61,6 @@ public class User extends DateAudit{
 //            joinColumns = @JoinColumn(name = "user_id"),
 //            inverseJoinColumns = @JoinColumn(name = "role_id"))
 
-    @OneToMany(mappedBy="role")
-    private Set<Role> roles;
+//    @OneToMany(mappedBy="roles")
+//    private Set<Role> roles;
 }

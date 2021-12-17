@@ -1,13 +1,13 @@
 package az.abb.etaskifyapp.service;
 
 import az.abb.etaskifyapp.entity.Organization;
-import az.abb.etaskifyapp.entity.Role;
+//import az.abb.etaskifyapp.entity.Role;
 import az.abb.etaskifyapp.entity.User;
 import az.abb.etaskifyapp.exception.AppException;
 import az.abb.etaskifyapp.payload.ApiResponse;
 import az.abb.etaskifyapp.payload.SignUpRequest;
 import az.abb.etaskifyapp.repository.OrganizationRepository;
-import az.abb.etaskifyapp.repository.RoleRepository;
+//import az.abb.etaskifyapp.repository.RoleRepository;
 import az.abb.etaskifyapp.repository.UserRepository;
 import az.abb.etaskifyapp.security.JwtTokenProvider;
 import org.springframework.http.HttpStatus;
@@ -25,7 +25,7 @@ public class OrganizationService {
     private AuthenticationManager authenticationManager;
     private OrganizationRepository organizationRepository;
     private UserRepository userRepository;
-    private RoleRepository roleRepository;
+//    private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
     private JwtTokenProvider tokenProvider;
     private EmailService emailService;
@@ -52,10 +52,10 @@ public class OrganizationService {
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        Role userRole = roleRepository.findById(signUpRequest.getRoleId())
-                .orElseThrow(()-> new AppException("User Role not set"));
+//        Role userRole = roleRepository.findById(signUpRequest.getRoleId())
+//                .orElseThrow(()-> new AppException("User Role not set"));
 
-        user.setRoles(Collections.singleton(userRole));
+//        user.setRoles(Collections.singleton(userRole));
 
         String confirmationToken = getConfirmationToken();
         user.setConfirmationToken(confirmationToken);
