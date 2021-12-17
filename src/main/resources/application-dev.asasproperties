@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
+#App Properties
+app.jwtSecret=JWTSuperSecretKey
+app.jwtExpirationInMs=604800000
