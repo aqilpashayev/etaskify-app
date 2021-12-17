@@ -18,6 +18,10 @@ public class Role {
     @Column(length = 60)
     private RoleName name;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
+
     public Role(){
 
     }
