@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.Instant;
 
@@ -15,7 +12,8 @@ import java.time.Instant;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "task")
+@Entity
+@Table(name = "task")
 public class Task {
 
     @Id
