@@ -54,6 +54,4 @@ public class SignUpRequest {
 
     private Long roleId;
 
-
-
 }

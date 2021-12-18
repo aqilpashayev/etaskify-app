@@ -37,12 +37,12 @@ public class OrganizationService {
                     HttpStatus.BAD_REQUEST);
         }
 
-        // Creating organization's profile
+        // Creating organization
         Organization organization = new Organization(signUpRequest.getOrganizationName(),signUpRequest.getPhone(),
               signUpRequest.getAddress());
 
         Organization organizationResult = organizationRepository.save(organization);
-        //creating user's profile
+        //creating user
         User user = new User(signUpRequest.getName(),signUpRequest.getSurname(),signUpRequest.getUsername(),
                 signUpRequest.getEmail(), passwordEncoder.encode(signUpRequest.getPassword()));
 
@@ -52,15 +52,12 @@ public class OrganizationService {
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-//        Role userRole = roleRepository.findById(signUpRequest.getRoleId())
-//                .orElseThrow(()-> new AppException("User Role not set"));
-
-//        user.setRoles(Collections.singleton(userRole));
+        user.setRole(1L);
 
         String confirmationToken = getConfirmationToken();
         user.setConfirmationToken(confirmationToken);
 
-        //user.setIdOrganization(organizationResult.getId());
+        user.setIdOrganization(organizationResult.getId());
 
         User userResult = userRepository.save(user);
 

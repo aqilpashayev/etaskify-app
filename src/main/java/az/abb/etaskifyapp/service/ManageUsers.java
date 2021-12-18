@@ -1,11 +1,13 @@
 package az.abb.etaskifyapp.service;
 
 //import az.abb.etaskifyapp.entity.Role;
+import az.abb.etaskifyapp.entity.Role;
 import az.abb.etaskifyapp.entity.User;
 import az.abb.etaskifyapp.exception.AppException;
 import az.abb.etaskifyapp.payload.ApiResponse;
 import az.abb.etaskifyapp.payload.SignUpRequest;
 //import az.abb.etaskifyapp.repository.RoleRepository;
+import az.abb.etaskifyapp.repository.RoleRepository;
 import az.abb.etaskifyapp.repository.UserRepository;
 import az.abb.etaskifyapp.response.BaseResponse;
 import org.springframework.http.HttpStatus;
@@ -19,7 +21,7 @@ import java.util.Collections;
 public class ManageUsers {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
-//    private RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     public ResponseEntity createUser(SignUpRequest signUpRequest){
         if(userRepository.findByUsername(signUpRequest.getUsername())){
@@ -30,11 +32,11 @@ public class ManageUsers {
         User user = new User(signUpRequest.getName(),signUpRequest.getSurname(),signUpRequest.getUsername(),
                 signUpRequest.getEmail(),passwordEncoder.encode(signUpRequest.getPassword()));
 
-        //user.setIdOrganization(signUpRequest.getIdOrganization());
+        user.setIdOrganization(signUpRequest.getIdOrganization());
 
-//        Role userRole = roleRepository.findById(signUpRequest.getRoleId())
-//                .orElseThrow(()-> new AppException("User Role not set"));
-//        user.setRoles(Collections.singleton(userRole));
+        user.setRole(signUpRequest.getRoleId());
+
+
 
         User userResult = userRepository.save(user);
         return ResponseEntity.ok(new ApiResponse(true,"User created successfully"));

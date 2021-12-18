@@ -15,18 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 public class TaskRequest {
 
-    @NotBlank
-    @Size(min = 3)
-    private String title;
 
-    @NotBlank
-    @Size(min = 3)
+    private String title;
     private String description;
 
-    @NotBlank
     private Instant deadline;
 
-    @NotBlank
     private int status;
 
     private String username;

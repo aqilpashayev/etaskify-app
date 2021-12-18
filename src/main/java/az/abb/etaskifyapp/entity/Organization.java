@@ -39,6 +39,5 @@ public class Organization extends DateAudit {
     @Size(max = 40)
     private String address;
 
-    @OneToMany
-    private List<User> users;
+
 }
