@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 
 
@@ -21,16 +22,15 @@ public class Task {
     @GeneratedValue
     private Long id;
 
-    @Column
+    @Size(min = 3)
     private String title;
 
-    @Column
+    @Size(min = 3)
     private String description;
 
-    @Column
+
     private Instant deadline;
 
-    @Column
     private int status;
 
     private Long idorganization;
