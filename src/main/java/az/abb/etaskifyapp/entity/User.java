@@ -53,8 +53,8 @@ public class User {
     private String password;
     private String confirmationToken;
 
-    @NotBlank
-    private Long idOrganization;
+//    @NotBlank
+//    private Long idOrganization;
 
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinTable(name = "roles",
@@ -63,4 +63,9 @@ public class User {
 
 //    @OneToMany(mappedBy="roles")
 //    private Set<Role> roles;
+    @ManyToOne
+    private Organization organization;
+
+//    @ManyToOne
+//    private Role role;
 }

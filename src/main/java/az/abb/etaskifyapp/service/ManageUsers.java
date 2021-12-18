@@ -30,7 +30,7 @@ public class ManageUsers {
         User user = new User(signUpRequest.getName(),signUpRequest.getSurname(),signUpRequest.getUsername(),
                 signUpRequest.getEmail(),passwordEncoder.encode(signUpRequest.getPassword()));
 
-        user.setIdOrganization(signUpRequest.getIdOrganization());
+        //user.setIdOrganization(signUpRequest.getIdOrganization());
 
 //        Role userRole = roleRepository.findById(signUpRequest.getRoleId())
 //                .orElseThrow(()-> new AppException("User Role not set"));

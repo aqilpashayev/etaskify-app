@@ -60,7 +60,7 @@ public class OrganizationService {
         String confirmationToken = getConfirmationToken();
         user.setConfirmationToken(confirmationToken);
 
-        user.setIdOrganization(organizationResult.getId());
+        //user.setIdOrganization(organizationResult.getId());
 
         User userResult = userRepository.save(user);
 

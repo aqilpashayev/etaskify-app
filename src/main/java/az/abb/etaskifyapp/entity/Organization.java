@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "organization")
@@ -38,5 +39,6 @@ public class Organization extends DateAudit {
     @Size(max = 40)
     private String address;
 
-
+    @OneToMany
+    private List<User> users;
 }

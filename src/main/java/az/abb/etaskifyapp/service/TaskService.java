@@ -18,10 +18,10 @@ public class TaskService {
 
     public ResponseEntity createTask(TaskRequest taskRequest){
         User user = userRepository.getByUsername(taskRequest.getUsername());
-        Task task = new Task(taskRequest.getTitle(),taskRequest.getDescription(),taskRequest.getDeadline(),
-                0, user.getIdOrganization());
-
-        taskRepository.save(task);
+//        Task task = new Task(taskRequest.getTitle(),taskRequest.getDescription(),taskRequest.getDeadline(),
+//                0, user.getIdOrganization());
+//
+//        taskRepository.save(task);
 
         return ResponseEntity.ok((new ApiResponse(true, "Task created successfully")));
     }
